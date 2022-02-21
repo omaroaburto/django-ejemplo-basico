@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>usuarios</title>
+    
+    <link rel="stylesheet" href="{% static 'css/boostrap.min.css' %}">
+</head>
+<body class="container">
+    <h1>Lista de usuarios</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Profesión</th>
+            <th scope="col">Género</th>
+            <th scope="col">Ciudad</th>
+            <!--<th scope="col">Imagen</th>-->
+          </tr>
+        </thead>
+        <tbody>
+          {% for usuario in get_usuarios %}
+          <tr>
+            <th scope="row">{{ usuario.id}}</th>
+            <td>{{ usuario.nombre}}</td>
+            <td><img src="{{ usuario.foto.url }}" width="48" height="48" style="border-radius:50px;"/></td>
+            <td>{{ usuario.profesion}}</td>
+            <td>{{ usuario.genero }}</td>
+            <td>{{ usuario.ciudad }}</td>
+            <!--<td><a href="{{ usuario.ciudad }}">imagen</a></td>-->
+          </tr>
+         {% endfor %}
+        </tbody>
+      </table>
+
+</body>
+</html>
